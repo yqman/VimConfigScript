@@ -133,8 +133,8 @@ function configVimAirLine() {
 	#fc-cache -vf 
 	# wget https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
 	# wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-	wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-	wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+	wget https://github.com/powerline/powerline/blob/develop/font/PowerlineSymbols.otf
+	wget https://github.com/powerline/powerline/blob/develop/font/10-powerline-symbols.conf
     mkdir -p ~/.local/share/fonts
 	mv PowerlineSymbols.otf ~/.local/share/fonts/ 
 	fc-cache -vf ~/.local/share/fonts/
