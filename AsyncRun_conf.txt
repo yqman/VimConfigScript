@@ -1,0 +1,24 @@
+"asyncrun settings
+ " automatically open quickfix window when AsyncRun command is executed
+ " set the quickfix window 6 lines height.
+ let g:asyncrun_open = 6
+ 
+ " ring the bell to notify you job finished
+ let g:asyncrun_bell = 1
+ 
+ " F10 to toggle quickfix window
+ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+ let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml'] 
+ nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+ nnoremap <silent> <F8> :AsyncRun -cwd=<root> -raw make run <cr>
+ nnoremap <silent> <F6> :AsyncRun -cwd=<root> -raw make test <cr>
+ nnoremap <silent> <F4> :AsyncRun -cwd=<root> cmake . <cr>
+
+ if has('win32') || has('win64')
+     noremap <silent><F2> :AsyncRun! -cwd=<root> findstr /n /s /C:"<C-R><C-W>" 
+             \ "\%CD\%\*.h" "\%CD\%\*.c*" <cr>
+ else
+     noremap <silent><F2> :AsyncRun! -cwd=<root> grep -n -s -R <C-R><C-W> 
+             \ --include='*.cpp' --include='*.h' --include='*.c*' '<root>' <cr>
+ endif
+

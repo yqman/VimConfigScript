@@ -114,13 +114,26 @@ function configNERDTree() {
 
 # 安装，配置Rainbow
  function configRainbow(){
-     echo -e "\033[32m安装显示文件树/文件目录插件NERDTree\033[0m"
+     echo -e "\033[32m安装显示Rainbow\033[0m"
      # 获取安装Github插件代码的结束位置，并在该位置之前插入安装
      # NERDTree插件的代码
      sed -i "/^\" Github Plugin End/i\Plugin 'frazreop/vim-rainbow'" $HOME/.vimrc
      # 在.vimrc文件尾部追加该插件的配置
      cat ./Rainbow_conf.txt >> $HOME/.vimrc
  }
+
+# 安装，配置AsyncRun
+  function configAsyncRun(){
+      echo -e "\033[32m安装显示Rainbow\033[0m"
+      # 获取安装Github插件代码的结束位置，并在该位置之前插入安装
+      # Asyncrun插件的代码
+      sed -i "/^\" Github Plugin End/i\Plugin 'skywind3000/asyncrun.vim'" $HOME/.vimrc
+      # 在.vimrc文件尾部追加该插件的配置
+      cat ./AsyncRun_conf.txt >> $HOME/.vimrc
+  }
+
+
+
 
 # 安装，配置状态栏增强插件vim-airline
 function configVimAirLine() {
@@ -173,6 +186,8 @@ plugin_dict=(
 	[NERDTree]=configNERDTree
 	[AirLine]=configVimAirLine
 	[Taglist]=configTaglist
+    [Rainbow]=configRainbow
+    [AsyncRun]=configAsyncRun
 )
 
 configVimBasic 
